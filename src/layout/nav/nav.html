@@ -1,0 +1,7 @@
+<nav>
+  <ul>
+    @for (item of navItems; track $index) {
+      <app-nav-item [navItem]="item"></app-nav-item>
+    }
+  </ul>
+</nav>

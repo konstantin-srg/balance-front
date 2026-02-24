@@ -1,0 +1,60 @@
+<div class="row">
+  @if (request()?.header !== '') {
+    <div class="message">{{request()?.header}}</div>
+  }
+
+  @if (request()?.link !== '') {
+    <div class="link"><a target="_blank" href="{{request()?.link}}">{{request()?.link}}</a></div>
+  }
+
+  @for (resp of responses(); track i; let i = $index) {
+    <div class="response">
+      <div class="status">
+        @if (resp.page > 0) {
+          Часть {{resp.page}} →
+        }
+
+        @if (resp.status === 'loading') {
+          Загрузка <span class="loading"></span>
+        } @else if (resp.status === 'waiting') {
+          Задержка 10 сек <span class="loading"></span>
+        } @else if (resp.status === 'fail') {
+          Ошибка выполнения <span class="b uc {{resp.status}}">{{resp.status}}</span>.
+          <span class="cnsl-btn"><i class="fa fa-rotate"></i> повторить запрос</span>
+        } @else {
+          Статус <span class="b uc {{resp.status}}">{{resp.status}}</span>.
+          @if (resp.processed) {
+            Обработано строк <b>{{resp.processed}}</b>.
+          }
+          @if (resp.time) {
+            Затрачено <span> {{resp.time}} сек</span>.
+          }
+        }
+      </div>
+
+      @if (resp.info !== undefined && resp.info!.length > 0) {
+        <div class="info">
+          @for (info of resp.info; track i; let i = $index) {
+            <div>→ {{ info }}</div>
+          }
+        </div>
+      }
+
+      @if (resp.errors !== undefined && resp.errors!.length > 0) {
+        <div class="errors">
+          @for (error of resp.errors; track i; let i = $index) {
+            <div>→ {{ error }}</div>
+          }
+        </div>
+      }
+
+      @if (resp.warnings !== undefined && resp.warnings!.length > 0) {
+        <div class="warnings">
+          @for (warning of resp.warnings; track i; let i = $index) {
+            <div>→ {{ warning }}</div>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  width: 100%;
+
+  .indent {
+    padding: 0 45px;
+    max-width: 1800px;
+    margin: 0 auto;
+    //display: flex;
+    width: 100%;
+
+    .indent {
+      padding: 0 35px;
+    }
+  }
+}

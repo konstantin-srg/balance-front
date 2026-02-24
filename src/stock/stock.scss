@@ -1,0 +1,29 @@
+@use "vars";
+
+.filters {
+  display: inline-flex;
+  margin-bottom: 80px;
+}
+
+.filter {
+  margin-right: 45px;
+
+  .label {
+    margin-bottom: 14px;
+    margin-left: 14px;
+    height: 18px;
+  }
+}
+
+.filter.sync {
+  button {
+    line-height: 40px;
+    font-size: 27px;
+    transition: transform .4s ease-in-out;
+
+    &:hover {
+      transform: rotate(360deg);
+    }
+  }
+}
+

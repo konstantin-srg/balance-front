@@ -1,0 +1,80 @@
+.row {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 20px;
+
+  .info {
+    font-size: 14px;
+  }
+
+  .link {
+    margin-bottom: 6px;
+
+    a {
+      color: #5391f8;
+    }
+  }
+
+  .response {
+    margin-top: 10px;
+
+  }
+
+  .cnsl-btn {
+    display: inline-block;
+    color: #FFF;
+    background: #25a09f;
+    padding: 0 8px;
+    cursor: pointer;
+    transition: all ease .2s;
+
+    &:hover {
+      background: #19c8c7;
+    }
+  }
+
+  .status {
+    margin-bottom: 8px;
+
+    .success, .fresh {
+      font-weight: 700;
+      color: #11ec00;
+    }
+
+    .fail {
+      font-weight: 700;
+      color: #ec0000;
+    }
+  }
+
+  .errors {
+    color: #ec0000;
+
+    :first-child {
+      margin-top: 10px;
+    }
+  }
+
+  .warnings {
+    color: #f5d52e;
+
+    :first-child {
+      margin-top: 10px;
+    }
+  }
+}
+
+.loading {
+  &:after {
+    animation: letterLoading 0.5s linear infinite alternate;
+    display: inline;
+    content: "\a0";
+  }
+}
+
+@keyframes letterLoading {
+  0% { content: ""; }
+  33% { content: "█"; }
+  66% { content: "██"; }
+  100% { content: "███"; }
+}

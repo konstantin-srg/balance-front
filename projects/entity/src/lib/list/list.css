@@ -1,0 +1,56 @@
+:host {
+  width: 100%;
+  display: block;
+}
+
+.header {
+  font-size: 22px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  user-select: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+}
+
+.row, .sum {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+
+  .key {
+    flex: 9999;
+    margin-right: 20px;
+  }
+
+  .val {
+    flex: 120px;
+    width: 120px;
+    text-align: right;
+    font-weight: 400;
+  }
+
+  .btns {
+    margin-left: 10px;
+    width: 20px;
+    flex: 20px;
+    text-align: right;
+
+    i {
+      font-weight: 400;
+    }
+  }
+}
+
+.rows .row, .sum {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px 0;
+}
+
+.sum {
+}
+
+.form {
+  margin-top: 35px;
+}

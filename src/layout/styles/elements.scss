@@ -1,0 +1,68 @@
+@use "vars";
+
+i.btn {
+  cursor: pointer;
+  transition: all ease .2s;
+
+  &:hover {
+    color: vars.$btnBg1;
+  }
+}
+
+a.btn, div.btn {
+  border: 1px solid vars.$btnBg2;
+  color: vars.$btnBg2;
+  line-height: 37px;
+  background: none;
+  font-size: 16px;
+  padding: 0 16px;
+  margin-right: 10px;
+  display: inline-block;
+  position: relative;
+  transition: all ease .2s;
+  cursor: pointer;
+  user-select: none;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:before {
+    content: "";
+  }
+
+  &:hover {
+    border: 1px solid vars.$btnBg1;
+    background: vars.$btnBg1;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.std-input {
+  transition: border-color ease .4s;
+  background: none;
+  border: 1px solid vars.$borderColor1;
+  border-bottom: 2px solid vars.$borderColor1;
+  height: 45px;
+  padding: 0 10px !important;
+  width: 100%;
+
+  &:focus {
+    border-color: vars.$btnBg1;
+  }
+
+  &.error, &.error:focus {
+    border-color: #ff4200;
+  }
+}
+
+.red {
+  color: #ff4200;
+}
+
+.green {
+  color: #94d621;
+}

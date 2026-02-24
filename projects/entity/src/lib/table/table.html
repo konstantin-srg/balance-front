@@ -1,0 +1,64 @@
+<div class="ent-table">
+  <div class="header">
+    @for (field of table()!.fields(); track field.field) {
+      @switch (field.filter) {
+        @case ('search') {
+          <div class="cell product">
+            <i class="fa fa-magnifying-glass"></i>
+            <input [formControl]="getControl(table()!.form(), field.field)" placeholder="{{field.label}}">
+          </div>
+        }
+        @case ('sort') {
+          <div class="cell sort"
+               [class.active]  ="sort().field === field.field"
+               [class.desc]    ="sort().field === field.field && sort().direction === 'desc'"
+               (click)="tblSort(field.field)"
+          >
+            {{field.label}} <i class="fa fa-arrow-down"></i>
+          </div>
+        }
+        @default {
+          <div class="cell">{{field.label}}</div>
+        }
+      }
+    }
+  </div>
+
+  <div class="body">
+    @for (row of table()!.data(); track i; let i = $index) {
+      <div class="row">
+
+      @for (field of table()!.fields(); track field.field) {
+        @switch (field.type) {
+          @case ('product') {
+            <div class="cell product">
+              <div class="pic" style="background-image: url({{row[field.field].image}})"></div>
+              <div class="data">
+                <div class="title">{{row[field.field].name}}</div>
+                @if(row[field.field].size) {
+                  <div class="prop">размер: {{row[field.field].size}}</div>
+                }
+                @if(row[field.field].color) {
+                  <div class="prop">цвет: {{row[field.field].color}}</div>
+                }
+                @if(row[field.field].stock) {
+                  <div class="prop">Склад: {{row[field.field].stock}}</div>
+                }
+              </div>
+            </div>
+          }
+          @case ('number') {
+            <div class="cell"><div class="nbr">{{row[field.field] | number: '.0': 'ru'}}</div></div>
+          }
+          @default {
+            <div class="cell">{{row[field.field]}}</div>
+          }
+        }
+      }
+
+      </div>
+    } @empty {
+      <div class="empty">Нет записей</div>
+    }
+  </div>
+</div>

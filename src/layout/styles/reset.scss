@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &, &:before, &:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+span, i, b, a {
+  display: inline;
+}
+
+i {
+  font-style: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+html {
+  height: 100%;
+  font-size: 12pt;
+}
+
+body {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  position: relative;
+  background: #FFF;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td {
+  vertical-align: top;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-style: normal;
+}
+
+strong {
+  font-weight: bold;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+caption, th {
+  text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+}
+
+q:before, q:after {
+  content: '';
+}
+
+abbr, acronym {
+  border: 0;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+.hide {
+  display: none;
+}
+
+.b {
+  font-weight: bold;
+}
+
+.uc {
+  text-transform: uppercase;
+}

@@ -1,0 +1,112 @@
+@use "vars";
+
+#layout {
+  /*font-family: "Proxima Nova", sans-serif;*/
+}
+
+.fa {
+  font-weight: 300;
+}
+
+body  {
+  background-image: rgb(47,47,49) !important;
+  background-image: url("/images/noise.png"), linear-gradient(130deg, rgba(47,47,49,1) 0%, rgba(22,22,22,1) 100%)  !important;
+  background-attachment: fixed;
+  color: vars.$txt1;
+  padding-bottom: 60px;
+}
+
+a, i {
+  color: vars.$txt1;
+}
+
+body {
+  font-size: 15px;
+}
+
+* {
+  font-family: vars.$fontFamily, serif;
+  font-weight: vars.$fontWeight;
+  font-style: normal;
+}
+
+input {
+  color: vars.$txt1;
+  font-family: vars.$fontFamily, serif;
+  font-weight: vars.$fontWeight;
+
+  &::placeholder {
+    font-family: vars.$fontFamily, serif;
+    font-weight: vars.$fontWeight;
+    font-style: italic;
+    transition: all ease .2s;
+  }
+
+  &:focus::placeholder {
+    color: rgba(0, 0, 0, 0) !important;
+  }
+}
+
+a {
+  cursor: pointer;
+  transition: color ease .4s;
+
+  &:hover {
+    color: var(--active-color);
+  }
+}
+
+.fa {
+  font-weight: 100;
+}
+
+:root {
+  .mat-button-toggle-group {
+    border-radius: 0;
+  }
+
+  .mat-button-toggle-label-content {
+    padding: 0 14px !important;
+  }
+
+  .mat-button-toggle-button {
+    padding-left: 0 !important;
+    background: vars.$btnBg2;
+    color: vars.$btnTxt2;
+    position: relative;
+    transition: all ease .2s;
+    display: block;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      top: auto;
+      height: 0;
+      width: 100%;
+      transition: all ease .15s;
+      border-radius: 0;
+      border: 0;
+      background: vars.$btnBg1;
+    }
+  }
+
+  .mat-button-toggle-checked .mat-button-toggle-button {
+    color: vars.$btnTxt1;
+
+
+    &:before {
+      height: 100%;
+    }
+  }
+
+  .mat-button-toggle-checkbox-wrapper {
+    display: none;
+  }
+
+  .mat-mdc-dialog-surface {
+    border-radius: 0;
+  }
+}

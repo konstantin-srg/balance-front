@@ -1,0 +1,34 @@
+<div class="list">
+  <div class="header"></div>
+
+  <div class="rows">
+      @for (row of listModel()?.data(); track i; let i = $index) {
+        <div class="row">
+          <div class="key">{{row.name}}</div>
+          <div class="val {{row.sum >= 0 ? 'green' : 'red'}}">{{row.sum | number: '.0': 'ru'}}</div>
+          <div class="btns" (click)="delRow(row.id)"><i class="fa fa-trash btn"></i></div>
+        </div>
+      }
+  </div>
+  <div class="sum">
+    <div class="key">Итого</div>
+    <div class="val {{listModel()!.sum() >= 0 ? 'green' : 'red'}}">{{listModel()?.sum() | number: '.0': 'ru'}}</div>
+    <div class="btns"></div>
+  </div>
+
+  <form class="form row" (submit)="onSubmit($event)">
+    <div class="key">
+      <input class="std-input" placeholder="Название"
+         [field]="form.name"
+         [class]="{'error': form.name().touched() && form.name().invalid()}">
+    </div>
+    <div class="val red">
+      <input class="std-input" placeholder="Сумма"
+         [field]="form.sum"
+         [class]="{'error': form.sum().touched() && form.sum().invalid()}">
+    </div>
+    <div class="btns">
+      <button type="submit"><i class="fa fa-plus btn"></i></button>
+    </div>
+  </form>
+</div>

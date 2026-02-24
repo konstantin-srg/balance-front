@@ -1,0 +1,9 @@
+services:
+  nginx:
+    container_name: front
+    restart: always
+    build:
+      context: ./..
+      dockerfile: ./docker/nginx/Dockerfile
+    ports:
+      - '80:80'

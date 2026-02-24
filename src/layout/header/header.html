@@ -1,0 +1,33 @@
+<div class="header-spacer" [style.height.px]="margin()"></div>
+
+<header>
+  <app-indent>
+    <app-indent>
+      <div class="block">
+        <div class="logo">
+          <div class="pic"></div>
+          <div class="name">
+            <span>WARE</span>HOUSE
+          </div>
+          <div class="dev">Konstantin Dev ^_^</div>
+        </div>
+        <div class="nav">
+          <app-nav></app-nav>
+        </div>
+        <div class="calendar">
+          <select  (change)="setYear($event)">
+            @for (iYear of years; track iYear.value) {
+              <option  [value]="iYear.value" [selected]="year() === iYear.value">{{iYear.icon}}</option>
+            }
+          </select>
+
+          <select  (change)="setMonth($event)">
+            @for (iMonth of months; track iMonth.value) {
+              <option  [value]="iMonth.value" [selected]="month() === iMonth.value">{{iMonth.icon}}</option>
+            }
+          </select>
+        </div>
+      </div>
+    </app-indent>
+  </app-indent>
+</header>

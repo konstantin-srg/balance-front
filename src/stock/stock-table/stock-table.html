@@ -1,0 +1,32 @@
+<div class="table">
+  <div class="row header">
+    <div class="first"></div>
+    @for (cluster of stockTable()?.clusters; track $index) {
+      <div class="cell">{{cluster.name}}</div>
+    }
+  </div>
+
+  @for (stock of stockTable()?.stock; track $index) {
+    <div class="row">
+      <div class="first">{{stock.product.name}}</div>
+
+      @for (stock of stock.stock; track $index) {
+        @if(!stock.quantity && !stock.avg_sales) {
+          <div class="cell"></div>
+        }
+        @else {
+          <div class="cell">
+            <div class="box status-{{stock.status}}">
+              {{stock.quantity}}
+              <div class="statistic">
+                <div>Продажи в неделю: <b>{{Math.round(parseFloat(stock.avg_sales) * 7)}}</b></div>
+                <div>Закончится через: <b>{{Math.round(parseFloat(stock.quantity) / parseFloat(stock.avg_sales))}}</b></div>
+              </div>
+            </div>
+          </div>
+        }
+      }
+    </div>
+  }
+</div>
+

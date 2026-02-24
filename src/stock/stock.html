@@ -1,0 +1,47 @@
+<app-indent>
+  <app-panel>
+    <div class="filters">
+      <div class="filter">
+        <div class="label">Бренд</div>
+        <mat-button-toggle-group [(ngModel)]="brand" value="">
+          <mat-button-toggle value="">Все</mat-button-toggle>
+          <mat-button-toggle value="1">НБХ</mat-button-toggle>
+          <mat-button-toggle value="2">Анлес</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+
+      <div class="filter">
+        <div class="label">Категория</div>
+        <mat-button-toggle-group [(ngModel)]="tag" value="">
+          <mat-button-toggle value="">Все</mat-button-toggle>
+          <mat-button-toggle value="1">Морилка</mat-button-toggle>
+          <mat-button-toggle value="2">Канистры</mat-button-toggle>
+          <mat-button-toggle value="3">Клей</mat-button-toggle>
+          <mat-button-toggle value="4">Карат</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+
+      <div class="filter">
+        <div class="label">Страна</div>
+        <mat-button-toggle-group [(ngModel)]="region" value="">
+          <mat-button-toggle value="">Все</mat-button-toggle>
+          <mat-button-toggle value="russia">Россия</mat-button-toggle>
+          <mat-button-toggle value="other">Зарубежье</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+
+      <div class="filter sync">
+        <div class="label"></div>
+        <button (click)="openConsole()"><i class="fa fa-rotate"></i></button>
+      </div>
+    </div>
+
+
+    @if (stockTable.isLoading()) {
+      <app-loading></app-loading>
+    }
+    @else {
+      <app-stock-table [stockTable]="stockTable.value()"></app-stock-table>
+    }
+  </app-panel>
+</app-indent>

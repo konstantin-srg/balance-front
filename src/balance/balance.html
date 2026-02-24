@@ -1,0 +1,26 @@
+<app-sub-header>
+  <div class="tbl-header">
+    <div class="btns">
+      <div class="btn">+</div>
+      <div class="btn" (click)="updateData()"><i class="fa fa-rotate"></i></div>
+      <div class="btn">Сверить с актом</div>
+    </div>
+
+    <div class="total">Сумма: <b>{{totalSum() | number: '.0' : 'ru'}}</b></div>
+  </div>
+</app-sub-header>
+
+<app-indent>
+  <div class="cols">
+    <div class="col-65">
+      <app-panel>
+        <ent-table [table]="table"></ent-table>
+      </app-panel>
+    </div>
+    <div class="col-35">
+      <app-panel>
+        <ent-list [listModel]="listModel"></ent-list>
+      </app-panel>
+    </div>
+  </div>
+</app-indent>

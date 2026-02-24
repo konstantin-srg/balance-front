@@ -1,0 +1,26 @@
+.item {
+  margin-right: 40px;
+  font-size: 14px;
+  position: relative;
+  padding-bottom: 5px;
+
+  a {
+    color: #ffffff;
+  }
+
+  :after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    transition: all ease .2s;
+    width: 0;
+    height: 2px;
+    background: var(--active-color);
+  }
+
+  &:hover :after {
+    width: 100%;
+  }
+}

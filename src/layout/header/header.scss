@@ -1,0 +1,93 @@
+@use "vars";
+
+:host {
+  z-index: 600;
+}
+
+
+
+header {
+  background: #151516;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 600;
+}
+
+.header-spacer {}
+
+.block {
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+  min-height: 75px;
+  width: 100%;
+
+  .logo {
+    flex: 0 220px;
+    position: relative;
+    padding: 7px 0 7px 70px;
+    margin-right: 110px;
+
+    .pic {
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-image: url("/images/logo.png");
+      width: 46px;
+      height: 50px;
+    }
+
+    .name {
+      font-size: 16px;
+      text-transform: uppercase;
+      margin-bottom: 1px;
+
+      span {
+        font-weight: 800;
+        color: vars.$bg1;
+      }
+    }
+
+    .dev {
+      color: #c0c0c0;
+      font-size: 13px;
+    }
+  }
+
+  .calendar {
+    text-align: right;
+    width: 210px;
+    flex: 210px 0;
+
+    select, option {
+      border: 1px solid #151516;
+      background: none;
+      outline: none;
+      color: #ffffff;
+      font-size: 17px;
+      margin-left: 5px;
+      padding-right: 4px;
+      background: #151516;
+    }
+
+    select {
+      display: inline-block;
+    }
+  }
+
+  .nav {
+    flex: 1;
+  }
+}
+
+.header-spacer {
+  transition: 0.3s all ease;
+}
+
+
+
+
+
