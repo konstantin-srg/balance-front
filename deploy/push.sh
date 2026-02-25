@@ -1,3 +1,5 @@
+npm run build -- --configuration=production --output-path=public
+
 git add -A
 git commit -m "Commit"
 git push origin main

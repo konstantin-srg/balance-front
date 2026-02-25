@@ -4,7 +4,7 @@ COPY package*.json ./
 #RUN npm install -g @angular/cli
 #RUN npm install
 COPY . /app
-#RUN npm run build -- --configuration=production
+#RUN npm run build -- --configuration=production --output-path=public-build-folder
 
 
 FROM nginx:alpine
