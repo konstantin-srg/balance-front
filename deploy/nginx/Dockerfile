@@ -8,7 +8,7 @@ COPY . /app
 
 
 FROM nginx:alpine
-COPY --from=builder /app/dist/balance/browser /var/www/front
+COPY --from=builder /app/dist-public/balance/browser /var/www/front
 COPY ./deploy/nginx/vhosts.public.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
