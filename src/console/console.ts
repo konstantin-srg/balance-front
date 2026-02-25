@@ -1,14 +1,11 @@
 import {Component, ComponentRef, inject, signal, viewChild, ViewContainerRef, WritableSignal} from '@angular/core';
-import {env} from '../env/env';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {ConsoleRow} from './console-row/console-row';
 import {ConsoleRequest} from './models/ConsoleRequest';
 import {MAT_DIALOG_DATA, MatDialogClose} from '@angular/material/dialog';
 import {ConsoleResponse} from './models/ConsoleResponse';
-import {resolve} from '@angular/compiler-cli';
 import {CalendarService} from '../../projects/entity/src/lib/calendar/calendar.service';
-import {map} from 'rxjs';
-import {disableDebugTools} from '@angular/platform-browser';
+import {env} from '../env/env';
 
 @Component({
   selector: 'app-sync',
@@ -22,7 +19,7 @@ import {disableDebugTools} from '@angular/platform-browser';
 
 export class Console {
   calendarService = inject(CalendarService);
-
+  env = env;
   consoleScroll = viewChild('console', {read: ViewContainerRef});
   consoleContent = viewChild('consoleContent', {read: ViewContainerRef});
   data = inject(MAT_DIALOG_DATA);
@@ -110,7 +107,7 @@ export class Console {
   }*/
 
   protected url(row: mapRow) {
-    return row.map.url + '?json=' + (JSON.stringify(row.map.params))
+    return this.env.apiRoot + row.map.url + '?json=' + (JSON.stringify(row.map.params))
   }
 
   async sync(rowData: mapRow){
