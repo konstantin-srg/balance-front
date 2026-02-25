@@ -4,6 +4,6 @@ services:
     restart: always
     build:
       context: ./..
-      dockerfile: ./docker/nginx/Dockerfile
+      dockerfile: /nginx/Dockerfile
     ports:
       - '80:80'
