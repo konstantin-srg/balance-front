@@ -1,6 +1,6 @@
 import "./chunk-WDMUDEB6.js";
 
-// node_modules/@angular/common/locales/ru.js
+// ../node_modules/@angular/common/locales/ru.js
 var u = void 0;
 function plural(val) {
   const n = val, i = Math.floor(Math.abs(val)), v = val.toString().replace(/^[^.]*\.?/, "").length;
