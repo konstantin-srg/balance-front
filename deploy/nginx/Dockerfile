@@ -2,9 +2,9 @@ FROM node:25.6.1-alpine3.22 AS builder
 WORKDIR /app
 COPY package*.json ./
 #RUN npm install -g @angular/cli
-RUN npm install
+RUN #npm install
 COPY . /app
-RUN npm run build -- --configuration=production
+RUN #npm run build -- --configuration=production
 
 
 FROM nginx:alpine
