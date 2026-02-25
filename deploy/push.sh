@@ -1,4 +1,4 @@
-npm run build -- --configuration=production --output-path=public
+npm run build -- --configuration=production --output-path=dist/public
 
 git add -A
 git commit -m "Commit"
