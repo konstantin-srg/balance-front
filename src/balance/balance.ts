@@ -101,7 +101,7 @@ export class Balance {
     const dialogRef = this.syncDialog.open(Console, {
       disableClose: true,
       maxWidth: '1200px',
-      data: {url: '/api/ozon/sync/map', map: 'stock', data: {}},
+      data: {url: '/ozon/sync/map', map: 'stock', data: {}},
     });
 
     dialogRef.afterClosed().subscribe(result => {
