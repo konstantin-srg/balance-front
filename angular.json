@@ -76,7 +76,6 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "options": {
-            "proxyConfig": "proxy-local.config.json"
           },
           "configurations": {
             "production": {
@@ -84,7 +83,8 @@
               "proxyConfig": "proxy-prod.config.json"
             },
             "development": {
-              "buildTarget": "balance:build:development"
+              "buildTarget": "balance:build:development",
+              "proxyConfig": "proxy-local.config.json"
             }
           },
           "defaultConfiguration": "development"

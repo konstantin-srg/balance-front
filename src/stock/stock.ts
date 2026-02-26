@@ -46,7 +46,7 @@ export class Stock {
       brand: this.brand(),
     }),
     loader:  async ({params, abortSignal}) => {
-      const resp = await fetch(this.env.apiRoot + '/ozon/stock/table', {
+      const resp = await fetch(env.apiRoot + '/ozon/stock/table', {
         method: 'POST',
         body: JSON.stringify({
           region: params.region,
@@ -68,7 +68,7 @@ export class Stock {
     const dialogRef = this.syncDialog.open(Console, {
       disableClose: true,
       maxWidth: '1200px',
-      data: {url: '/api/ozon/sync/map', map: 'stock', data: {}},
+      data: {url: '/ozon/sync/map', map: 'stock', data: {}},
     });
 
     dialogRef.afterClosed().subscribe(result => {

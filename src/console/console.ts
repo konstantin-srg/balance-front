@@ -52,7 +52,7 @@ export class Console {
     );
 
     let maps = await new Promise<ConsoleResponse>((resolve, reject) => {
-      this.http.post<ConsoleResponse>(rowData.map.url, rowData.map.params).subscribe(resp => {
+      this.http.post<ConsoleResponse>(this.url(rowData, true), rowData.map.params).subscribe(resp => {
         resolve(resp)
       })
     }).then<mapRow[]>((consResp) => {
@@ -106,8 +106,8 @@ export class Console {
     return false;
   }*/
 
-  protected url(row: mapRow) {
-    return this.env.apiRoot + row.map.url + '?json=' + (JSON.stringify(row.map.params))
+  protected url(row: mapRow, post: boolean = false) {
+    return env.apiRoot + row.map.url + (!post ? '?json=' + JSON.stringify(row.map.params) : '')
   }
 
   async sync(rowData: mapRow){
@@ -122,7 +122,7 @@ export class Console {
     let page = 1;
 
     const request = (rowData: mapRow) => new Promise(resolve => {
-      this.http.post<any>('/api' + rowData.map.url, rowData.map.params).subscribe(resp => {
+      this.http.post<any>(this.url(rowData, true), rowData.map.params).subscribe(resp => {
         resolve(resp)
       })
     });
