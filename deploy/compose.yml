@@ -1,6 +1,6 @@
 services:
-  front:
-    container_name: nginx
+  nginx:
+    container_name: front-nginx
     image: nginx:alpine
     ports:
       - '4200:80'
