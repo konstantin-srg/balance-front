@@ -1,4 +1,4 @@
-npm run build -- --configuration=production --output-path=dist-public/balance
+npm run build -- --configuration=production --output-path=./deploy/src
 
 git add -A
 git commit -m "Commit"
