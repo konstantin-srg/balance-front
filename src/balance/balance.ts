@@ -47,14 +47,14 @@ export class Balance {
   env = env;
 
   listModel = new ListModel(
-    '/api/balance/flow-add',
-    '/api/balance/flow-list',
-    '/api/balance/flow-del',
+    '/balance/flow-add',
+    '/balance/flow-list',
+    '/balance/flow-del',
   );
 
   table = new TableModel(
     'balance',
-    '/api/balance/products',[
+    '/balance/products',[
     new TableField(
       'product',
       'Название',

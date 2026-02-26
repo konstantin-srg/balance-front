@@ -34,7 +34,7 @@ export class Flow {
 
   table = new TableModel(
     'flow',
-    '/api/flow/products',[
+    '/flow/products',[
     new TableField(
       'product',
       'Название',
@@ -68,9 +68,9 @@ export class Flow {
   ]);
 
   listModel = new ListModel(
-    '/api/flow/flow-add',
-    '/api/flow/flow-list',
-    '/api/flow/flow-del',
+    '/flow/flow-add',
+    '/flow/flow-list',
+    '/flow/flow-del',
   );
 
   readonly syncDialog = inject(MatDialog);
@@ -78,7 +78,7 @@ export class Flow {
     const dialogRef = this.syncDialog.open(Console, {
       disableClose: true,
       maxWidth: '1200px',
-      data: {url: '/api/ozon/sync/map', map: 'stock', data: {}},
+      data: {url: '/ozon/sync/map', map: 'stock', data: {}},
     });
 
     dialogRef.afterClosed().subscribe(result => {
