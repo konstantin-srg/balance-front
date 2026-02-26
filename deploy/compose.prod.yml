@@ -1,5 +1,5 @@
 services:
-  front:
+  nginx:
     restart: always
     ports:
       - '4200:80'
