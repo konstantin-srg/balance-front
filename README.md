@@ -17,9 +17,7 @@ docker compose -f ./deploy/compose.yml -p balance-front up -d
 ```
 Push
 ```bash
-git add -A
-git commit -m "Commit"
-git push origin main
+powershell ./deploy/push.sh
 ```
 
 
