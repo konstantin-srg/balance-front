@@ -3,8 +3,6 @@ Server Start
 ng serve
 ```
 
-
-
 Build public
 ```bash
 npm run build -- --configuration=production --output-path=./deploy/src
