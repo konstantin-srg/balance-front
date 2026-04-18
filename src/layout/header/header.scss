@@ -57,6 +57,27 @@ header {
     }
   }
 
+  .ozon {
+    text-align: right;
+    width: 210px;
+    flex: 210px 0;
+
+    select, option {
+      border: 1px solid #151516;
+      background: none;
+      outline: none;
+      color: #ffffff;
+      font-size: 17px;
+      margin-left: 5px;
+      padding-right: 4px;
+      background: #151516;
+    }
+
+    select {
+      display: inline-block;
+    }
+  }
+
   .calendar {
     text-align: right;
     width: 210px;

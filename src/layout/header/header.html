@@ -14,6 +14,15 @@
         <div class="nav">
           <app-nav></app-nav>
         </div>
+
+        <div class="ozon">
+          <select  (change)="ozonService.setId($event)">
+            @for (acc of ozonService.accounts(); track acc.id) {
+              <option [value]="acc.id" [selected]="ozonService.accountId() === acc.id">{{acc.name}}</option>
+            }
+          </select>
+        </div>
+
         <div class="calendar">
           <select  (change)="setYear($event)">
             @for (iYear of years; track iYear.value) {

@@ -21,13 +21,14 @@ a, i {
 }
 
 body {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 * {
   font-family: vars.$fontFamily, serif;
   font-weight: vars.$fontWeight;
   font-style: normal;
+  font-optical-sizing: auto;
 }
 
 input {

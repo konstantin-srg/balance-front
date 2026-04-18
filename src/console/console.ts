@@ -6,6 +6,7 @@ import {MAT_DIALOG_DATA, MatDialogClose} from '@angular/material/dialog';
 import {ConsoleResponse} from './models/ConsoleResponse';
 import {CalendarService} from '../../projects/entity/src/lib/calendar/calendar.service';
 import {env} from '../env/env';
+import {OzonService} from '../libs/ozon/ozon.service';
 
 @Component({
   selector: 'app-sync',
@@ -19,7 +20,7 @@ import {env} from '../env/env';
 
 export class Console {
   calendarService = inject(CalendarService);
-  env = env;
+  ozonService = inject(OzonService);
   consoleScroll = viewChild('console', {read: ViewContainerRef});
   consoleContent = viewChild('consoleContent', {read: ViewContainerRef});
   data = inject(MAT_DIALOG_DATA);
@@ -37,19 +38,19 @@ export class Console {
 
   async load() {
     let rowData = {
-      map: {name: 'Загрузка карты обновлений', url: this.data.url, params: {map: this.data.map} as Record<string, string>,},
+      map: {name: 'Загрузка карты обновлений', url: this.data.url, params: {map: this.data.map, api: this.ozonService.accountId().toString()} as Record<string, string>,},
       steps: [],
       resolve: false
     } as mapRow;
 
     let row = this.addRow(rowData.map.name, this.url(rowData));
 
-    const task = (i: number) => new Promise(resolve =>
+    /*const task = (i: number) => new Promise(resolve =>
       setTimeout(() => {
         console.log(i)
         resolve(i)
       }, 1000)
-    );
+    );*/
 
     let maps = await new Promise<ConsoleResponse>((resolve, reject) => {
       this.http.post<ConsoleResponse>(this.url(rowData, true), rowData.map.params).subscribe(resp => {
@@ -113,10 +114,13 @@ export class Console {
   async sync(rowData: mapRow){
     console.log(rowData)
     rowData.map.params['date'] = this.calendarService.date();
+    rowData.map.params['api']  = this.ozonService.accountId();
+
+    console.log(rowData.map.params['date'])
 
     const row = this.addRow(rowData.map.name, this.url(rowData));
 
-    //request.map.data['date'] = this.calendarService.date();
+    //rowData.map.params['date'] = this.calendarService.date();
 
     let result = {};
     let page = 1;

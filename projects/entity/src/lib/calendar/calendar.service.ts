@@ -17,13 +17,15 @@ export class CalendarService {
 
     let calendarCookie = localStorage.getItem('calendar');
 
-    if(calendarCookie !== null) {
+    /*if(calendarCookie !== null) {
       const calendar = calendarCookie.split('-');
-       const date = new Date(parseInt(calendar[0]), parseInt(calendar[1]) - 1);
 
-      this.year.set(date.getFullYear().toString());
-      this.month.set((date.getMonth() + 1).toString());
-    }
+      if (parseInt(calendar[0]) && parseInt(calendar[1])) {
+        const date = new Date(parseInt(calendar[0]), parseInt(calendar[1]) - 1);
+        this.year.set(date.getFullYear().toString());
+        this.month.set((date.getMonth() + 1).toString());
+      }
+    }*/
 
     effect(() => {
       localStorage.setItem('calendar',this.year() + '-' + this.month());

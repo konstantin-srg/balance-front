@@ -9,6 +9,8 @@ import {StockTable as StockTableMdl} from './models/stockTable';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {Console} from '../console/console';
 import {Indent} from '../layout/helpers/indent/indent';
+import {ConsoleResponse} from '../console/models/ConsoleResponse';
+import {OzonService} from '../libs/ozon/ozon.service';
 
 @Component({
   selector: 'app-stock',
@@ -29,6 +31,7 @@ import {Indent} from '../layout/helpers/indent/indent';
 export class Stock {
   env = env;
   readonly syncDialog = inject(MatDialog);
+  readonly ozonService = inject(OzonService);
   //readonly syncDialog = inject(MatDialogRef<'sync-console'>);
 
   region = signal<string>('');
@@ -39,11 +42,13 @@ export class Stock {
     region: string,
     tag: string,
     brand: string,
+    api: string,
   }>({
     params: () => ({
       region: this.region(),
       tag: this.tag(),
       brand: this.brand(),
+      api: this.ozonService.accountId().toString(),
     }),
     loader:  async ({params, abortSignal}) => {
       const resp = await fetch(env.apiRoot + '/ozon/stock/table', {
@@ -52,6 +57,7 @@ export class Stock {
           region: params.region,
           tag: params.tag,
           brand: params.brand,
+          api: params.api,
         }),
         signal: abortSignal
       });
@@ -62,6 +68,10 @@ export class Stock {
 
   ngOnInit() {
     //this.openConsole();
+
+    // this.http.post<ConsoleResponse>(this.url(rowData, true), rowData.map.params).subscribe(resp => {
+    //   resolve(resp)
+    // })
   }
 
   openConsole(): void {

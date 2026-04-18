@@ -1,13 +1,8 @@
 import {
   Component,
   computed,
-  effect,
   inject,
   Injectable,
-  resource,
-  signal,
-  ViewChildren,
-  WritableSignal
 } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import BalanceModel from './models/Balance';
@@ -17,7 +12,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {env} from '../env/env';
 import {Console} from '../console/console';
 import {MatDialog} from '@angular/material/dialog';
-import {ActivatedRoute, RouterState} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {List, Table, TableField, TableModel, CalendarService, ListModel} from 'entity';
 import {DecimalPipe} from '@angular/common';
 import {Indent} from '../layout/helpers/indent/indent';

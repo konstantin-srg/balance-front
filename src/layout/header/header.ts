@@ -3,6 +3,7 @@ import {Nav} from '../nav/nav';
 import {Indent} from '../helpers/indent/indent';
 import {HeaderService} from './header.service';
 import {CalendarService} from 'entity';
+import {OzonService} from '../../libs/ozon/ozon.service';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +16,7 @@ import {CalendarService} from 'entity';
   styleUrl: './header.scss'
 })
 export class Header {
+  public ozonService = inject(OzonService);
   private calendarService = inject(CalendarService);
   private headerService = inject(HeaderService);
   protected headerHeight  = 75;
@@ -29,7 +31,7 @@ export class Header {
   constructor() {
     this.months = [
       {value: '1', icon: 'Январь'},
-      {value: '2', icon: 'Фкевраль'},
+      {value: '2', icon: 'Февраль'},
       {value: '3', icon: 'Март'},
       {value: '4', icon: 'Апрель'},
       {value: '5', icon: 'Май'},

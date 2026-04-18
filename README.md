@@ -1,5 +1,10 @@
 Server Start
 ```bash
+ng build entity --watch
+```
+
+Server Start 2
+```bash
 ng serve
 ```
 
